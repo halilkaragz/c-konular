@@ -1,0 +1,62 @@
+    using System;
+
+    namespace DictionaryOdevi
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                MyDictionary<int, string> Ogrenci = new MyDictionary<int, string>();
+                Ogrenci.Add(1, "Halil");
+                Ogrenci.Add(2, "Meral");
+                Ogrenci.ShowConsole();
+            }
+        }
+
+        class MyDictionary<K, V>
+        {
+            K[] _keyArray;
+            V[] _valueArray;
+
+            public MyDictionary()
+            {
+                _keyArray = new K[0];
+                _valueArray = new V[0];            
+            }
+
+            public void Add(K ItemK, V ItemV)
+            {
+                K[] tempKeyArray = _keyArray;
+
+                _keyArray = new K[tempKeyArray.Length + 1];
+
+                for (int i = 0; i < tempKeyArray.Length; i++)
+                {
+                    _keyArray[i] = tempKeyArray[i];
+                }
+
+                _keyArray[_keyArray.Length - 1] = ItemK;
+
+
+                V[] tempValueArray = _valueArray;
+
+                _valueArray = new V[tempValueArray.Length + 1];
+
+                for (int i = 0; i < tempValueArray.Length; i++)
+                {
+                    _valueArray[i] = tempValueArray[i];
+                }
+
+                _valueArray[_valueArray.Length - 1] = ItemV;
+            }
+
+            public void ShowConsole()
+            {
+                for (int i = 0; i < _keyArray.Length; i++)
+                {
+                    Console.WriteLine(Convert.ToString( _keyArray[i]) + " " + _valueArray[i]);
+                }
+            }
+        }
+    }
+
