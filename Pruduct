@@ -1,0 +1,49 @@
+using System;
+
+namespace ProductOdev
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product urun1 = new Product()
+            {
+                Adi = "elma",
+                Fiyat = 11 ,
+                Id = 1,
+                kategoriID = 1
+            };
+
+            Product urun2 = new Product()
+            {
+                Adi = "armut",
+                Fiyat = 12,
+                Id = 2,
+                kategoriID = 1
+            };
+
+            Product urun3 = new Product()
+            {
+                Adi = "çikolatalı kek",
+                Fiyat = 5,
+                Id = 15,
+                kategoriID = 2
+            };
+
+            Product[] urunler = new Product[] { urun1, urun2, urun3 };
+
+            foreach (Product urun in urunler)
+            {
+                Console.WriteLine("Ürün Kodu : + " + urun.Id + ", Ürün Adı : " + urun.Adi + ", Fiyatı : " + urun.Fiyat + " TL");
+            }
+        }
+    }
+
+    class Product
+    {
+        public int Id { get; set; }
+        public int kategoriID { get; set; }
+        public string Adi { get; set; }
+        public int Fiyat { get; set; }    
+    }
+}
